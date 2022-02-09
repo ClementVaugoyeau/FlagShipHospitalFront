@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './CreatePatient.scss';
+import Table from 'react-bootstrap/Table'
+
 
 
 export default function CreatePatient() {
@@ -8,36 +10,43 @@ export default function CreatePatient() {
    
 
     return (
-        <div class = "container">
-            <div className="create-form">
-                <div>
-                    <label>Prénom</label>
-                    <input placeholder='Prénom' />
-                </div>
-                <div>
-                    <label>Nom</label>
-                    <input placeholder='Nom' />
-                </div>
-                <div>
-                    <label>Date d'arrivée</label>
-                    <input placeholder='Nom' />
-                </div>
-                <div>
-                    <label>Date de départ</label>
-                    <input placeholder='Nom' />
-                </div>
-                
-                
-                <div>
-                <label>Note dossier patient</label>
-                <textarea rows = "5" cols = "60" name = "description" placeholder='Notez les informations du patient ici'>
+        <div className="container">
+
+            <h1 id="titleTable" >Creation du dossier patient</h1>
             
-         </textarea>
-                </div>
-                
-                
-                <button  type='submit'>Envoyer</button>
-            </div>
+<Table striped bordered hover>
+  
+  <tbody>
+    <tr>
+      <td>Prénom</td>
+      <td><input placeholder='Prénom'></input></td>
+     
+    </tr>
+    <tr>
+      <td>Nom</td>
+      <td><input placeholder='Nom'></input></td>
+      
+    </tr>
+    <tr>
+      <td>Date d'arrivée</td>
+      <td ><input type="datetime-local" id="arrivee" name="arrivee"></input></td>
+      
+    </tr>
+    <tr>
+      <td>Date de départ</td>
+      <td ><input type="datetime-local" id="depart" name="depart"></input></td>
+      
+    </tr>
+    <tr>
+      <td>Note concernant le Patient</td>
+      <td ><textarea rows="9" cols="40" placeholder="Symptômes, diagnotics, traitements, diverses remarques pour l'equipe medicale."></textarea></td>
+      
+    </tr>
+    
+  </tbody>
+</Table>
+    
+    <button class='btn-primary m-2 rounded'>Envoyer</button>
         </div>
     )
 }
