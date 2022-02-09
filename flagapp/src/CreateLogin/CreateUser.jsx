@@ -1,10 +1,10 @@
 import React, { Component, useState } from 'react';
-import './CreatePatient.scss';
+import './CreateUser.scss';
 import Table from 'react-bootstrap/Table'
 
 
 
-export default class CreatePatient extends Component {
+export default class CreateUser extends Component {
     
     handleSubmit(e) {
         e.preventDefault();
@@ -35,34 +35,29 @@ export default class CreatePatient extends Component {
     return (
         <div className="container">
 
-            <h1 id="titleTable" >Création du dossier patient</h1>
+            <h1 id="titleTable" >Création de l'utilisateur</h1>
             
 <Table striped bordered hover>
   
   <tbody>
     <tr>
-      <td>Prénom</td>
-      <td><input placeholder='Prénom'></input></td>
+      <td>Adresse mail</td>
+      <td><input type="email" placeholder='mail'></input></td>
      
     </tr>
     <tr>
-      <td>Nom</td>
-      <td><input placeholder='Nom'></input></td>
+      <td>Mot de passe</td>
+      <td><input type="password"  placeholder='mot de passe'></input></td>
       
     </tr>
+    
     <tr>
-      <td>Date d'arrivée</td>
-      <td ><input type="datetime-local" id="arrivee" name="arrivee"></input></td>
-      
-    </tr>
-    <tr>
-      <td>Date de départ</td>
-      <td ><input type="datetime-local" id="depart" name="depart"></input></td>
-      
-    </tr>
-    <tr>
-      <td>Note concernant le Patient</td>
-      <td ><textarea rows="9" cols="40" placeholder="Symptômes, diagnotics traitements, divers remarques pour l'equipe medicale."></textarea></td>
+      <td>Role</td>
+      <td ><select id="monselect">
+  <option value="Patient">Patient</option>
+  <option value="Staff" selected>Staff</option>
+  <option value="Docteur">Docteur</option>
+</select></td>
       
     </tr>
     
