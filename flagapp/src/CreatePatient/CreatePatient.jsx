@@ -39,7 +39,7 @@ export default function CreatePatient() {
     </tr>
     <tr>
       <td>Note concernant le Patient</td>
-      <td ><textarea rows="9" cols="40" placeholder="Symptômes, diagnotics, traitements, diverses remarques pour l'equipe medicale."></textarea></td>
+      <td ><textarea rows="9" cols="40" placeholder="Symptômes, diagnotics traitements, divers remarques pour l'equipe medicale."></textarea></td>
       
     </tr>
     
