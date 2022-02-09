@@ -2,36 +2,13 @@ import React, { Component, useState } from 'react';
 import './CreatePatient.scss';
 import Table from 'react-bootstrap/Table'
 
+import axios from 'axios';
 
-
-export default class CreatePatient extends Component {
+export default function CreatePatient()  {
     
-    handleSubmit(e) {
-        e.preventDefault();
-        console.log(e)
-        const { users, checkInDate,  checkOutDate, IdUser} = this.state;
-        console.log(checkInDate)
-        console.log(checkOutDate)
-        console.log(IdUser)
-        var parsedDateIn = new Date(checkInDate);
-        var parsedDateOut = new Date(checkOutDate);
-        let horodatage = {
-            "idUser": this.state.IdUser,
-            "dateArrival": parsedDateIn,
-            "dateDeparture": parsedDateOut
-        }
-
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(horodatage)
-        };
-        console.log(requestOptions)
-        return fetch(`https://localhost:7023/HorodatageUsers`, requestOptions);
-        
-    }
+    
    
-   render(){
+   
     return (
         <div className="container">
 
@@ -69,10 +46,10 @@ export default class CreatePatient extends Component {
   </tbody>
 </Table>
     
-    <button className='btn-primary m-2 rounded' >Enregistrer</button>
+    <button className='btn-primary m-2 rounded'  >Enregistrer</button>
         </div>
     )
-    }
+    
 
 
 

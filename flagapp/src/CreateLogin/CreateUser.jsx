@@ -2,36 +2,25 @@ import React, { Component, useState } from 'react';
 import './CreateUser.scss';
 import Table from 'react-bootstrap/Table'
 
+import axios from 'axios'
 
+export default function CreateUser()  {
+  const [UserID, setUserID] = useState('');
+  const [email, setMail] = useState('');
+  const [motdepasse, setPassword] = useState('');
+  const [role, setRole] = useState();
 
-export default class CreateUser extends Component {
+  const postData = () => {
+      axios.post('https://localhost:7008/api/User' , {
+          UserID,
+          email,
+          motdepasse,
+          role
+      })
+  }
     
-    handleSubmit(e) {
-        e.preventDefault();
-        console.log(e)
-        const { users, checkInDate,  checkOutDate, IdUser} = this.state;
-        console.log(checkInDate)
-        console.log(checkOutDate)
-        console.log(IdUser)
-        var parsedDateIn = new Date(checkInDate);
-        var parsedDateOut = new Date(checkOutDate);
-        let horodatage = {
-            "idUser": this.state.IdUser,
-            "dateArrival": parsedDateIn,
-            "dateDeparture": parsedDateOut
-        }
-
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(horodatage)
-        };
-        console.log(requestOptions)
-        return fetch(`https://localhost:7023/HorodatageUsers`, requestOptions);
-        
-    }
    
-   render(){
+   
     return (
         <div className="container">
 
@@ -42,18 +31,18 @@ export default class CreateUser extends Component {
   <tbody>
     <tr>
       <td>Adresse mail</td>
-      <td><input type="email" placeholder='mail'></input></td>
+      <td><input value={email} placeholder='mail' onChange={(e) => setMail(e.target.value)}></input></td>
      
     </tr>
     <tr>
       <td>Mot de passe</td>
-      <td><input type="password"  placeholder='mot de passe'></input></td>
+      <td><input type="password" value={motdepasse} placeholder='mot de passe' onChange={(e) => setPassword(e.target.value)}></input></td>
       
     </tr>
     
     <tr>
       <td>Role</td>
-      <td ><select id="monselect">
+      <td ><select id="monselect" onChange={(e) => setRole(e.target.value)}>
   <option value="Patient">Patient</option>
   <option value="Staff" selected>Staff</option>
   <option value="Docteur">Docteur</option>
@@ -64,10 +53,10 @@ export default class CreateUser extends Component {
   </tbody>
 </Table>
     
-    <button className='btn-primary m-2 rounded' >Enregistrer</button>
+    <button className='btn-primary m-2 rounded' onClick={postData} type='submit' >Enregistrer</button>
         </div>
     )
-    }
+    
 
 
 
