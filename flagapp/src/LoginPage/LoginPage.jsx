@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../_actions';
 import { useNavigate } from "react-router-dom";
-
+import "./LoginPage.css"
 
 function LoginPage() {
     const history = useNavigate();
@@ -39,29 +39,32 @@ function LoginPage() {
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
-            <h2>Login</h2>
+        <div className="w-75">
+            <h2 className="mt-4 mb-4">Login</h2>
             <form name="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="text" name="Email" value={Email} onChange={handleChange} className={'form-control' + (submitted && !Email ? ' is-invalid' : '')} />
+                <div className="form-group mb-4">
+                    <label className="mb-2">Email</label>
+                    <input type="text" name="Email" value={Email} onChange={handleChange} className={'mb-2 form-control' + (submitted && !Email ? ' is-invalid' : '')} />
                     {submitted && !Email &&
                         <div className="invalid-feedback">Email is required</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Mot de passe</label>
-                    <input type="password" name="Motdepasse" value={Motdepasse} onChange={handleChange} className={'form-control' + (submitted && !Motdepasse ? ' is-invalid' : '')} />
+                    <label className="mb-2">Mot de passe</label>
+                    <input type="password" name="Motdepasse" value={Motdepasse} onChange={handleChange} className={'mb-2 form-control' + (submitted && !Motdepasse ? ' is-invalid' : '')} />
                     {submitted && !Motdepasse &&
                         <div className="invalid-feedback">Password is required</div>
                     }
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-5 d-flex justify-content-around">
                     <button className="btn btn-primary">
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
                     </button>
-                    <Link to="/register" className="btn btn-link">Register</Link>
+                    <button className="btn btn-primary">
+                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                        <Link className="btn btn-primary" to="/CreateUser">Register</Link>
+                    </button>
                 </div>
             </form>
         </div>

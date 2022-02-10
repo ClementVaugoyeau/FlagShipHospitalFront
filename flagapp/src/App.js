@@ -25,9 +25,9 @@ function App() {
     return (
         <div>
            <NavBar />
-            <div className="jumbotron">
-                <div className="container">
-                    <div className="col-md-8 offset-md-2">
+            {/* <div className="jumbotron">
+                <div className=""> */}
+                    <div className="d-flex justify-content-center">
                         {alert.message &&
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
                         }
@@ -38,8 +38,8 @@ function App() {
                             <Route exact path='/createPatient' element={<CreatePatient />} />
                         </Routes>
                     </div>
-                </div>
-            </div>
+                {/* </div>
+            </div> */}
         </div>
     );
 }

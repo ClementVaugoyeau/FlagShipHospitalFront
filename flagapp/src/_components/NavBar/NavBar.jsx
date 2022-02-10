@@ -1,6 +1,7 @@
 ﻿import React, { Component, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import './NavBar.css';
 
 export default function NavBar() {
 
@@ -18,7 +19,7 @@ export default function NavBar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <h1>
+            <h1 className="p-4">
                 FlagS Hospital
             </h1>
             {isPatient &&

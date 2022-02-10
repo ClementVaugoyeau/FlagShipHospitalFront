@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
     "\\src",
-    "\\src\\LoginPage",
     "\\src\\_actions",
     "\\src\\_components",
     "\\src\\_components\\NavBar",
@@ -11,6 +11,6 @@
     "\\src\\_reducers",
     "\\src\\_services"
   ],
-  "SelectedNode": "\\src\\_reducers\\authentication.reducer.js",
+  "SelectedNode": "\\src\\_components\\index.js",
   "PreviewInSolutionExplorer": false
 }
