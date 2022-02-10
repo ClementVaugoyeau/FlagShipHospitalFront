@@ -74,3 +74,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### npm install react-redux
 ### npm install redux-thunk
 ### npm install redux-logger
+### npm install axios
+### npm i react-bootstrap
