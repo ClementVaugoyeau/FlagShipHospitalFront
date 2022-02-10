@@ -3,6 +3,7 @@ import './CreatePatient.scss';
 import Table from 'react-bootstrap/Table'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { dossierPatientService } from '../_services/dossierpatient.service'
 
 export default function CreatePatient() {
   const [UserID, setUserID] = useState('');
@@ -12,15 +13,35 @@ export default function CreatePatient() {
   const [dateDepart, setDateDepart] = useState('');
   const [note, setNote] = useState();
   const role = useSelector(state => state.authentication.user.role);
-  const postData = () => {
-    axios.post('https://localhost:7008/api/Dossierpatient', {
-      UserID,
-      nom,
-      prenom,
-      dateArrivee,
-      dateDepart,
-      note
-    })
+
+  const postData = (e) => {
+    //axios.post('https://localhost:7008/api/Dossierpatient', {
+    //  UserID,
+    //  nom,
+    //  prenom,
+    //  dateArrivee,
+    //  dateDepart,
+    //  note
+    //})
+      e.preventDefault();
+
+      let dossierPatient = {
+          "Nom": nom,
+          "Prenom": prenom,
+          "DateArrivee": new Date(dateArrivee),
+          "DateDepart": new Date(dateDepart),
+          "Note": note
+      }
+      dossierPatientService.create(dossierPatient)
+          .then(
+              dossierPatient => {
+                  console.log(dossierPatient)
+                  alert("dossierPatient créé")
+              },
+              error => {
+                  alert(error)
+              }
+          );
   }
 
 
@@ -43,12 +64,12 @@ export default function CreatePatient() {
             </tr>
             <tr>
               <td>Date d'arrivée</td>
-              <td ><input type="datetime-local" id="arrivee" name="arrivee" value={dateArrivee} onChange={(e) => setDateArrivee(new Date(e.target.value))}></input></td>
+              <td ><input type="datetime-local" id="arrivee" name="arrivee" value={dateArrivee} onChange={(e) => setDateArrivee(e.target.value)}></input></td>
 
             </tr>
             <tr>
               <td>Date de départ</td>
-              <td ><input type="datetime-local" id="depart" name="depart" value={dateDepart} onChange={(e) => setDateDepart(new Date(e.target.value))}></input></td>
+              <td ><input type="datetime-local" id="depart" name="depart" value={dateDepart} onChange={(e) => setDateDepart(e.target.value)}></input></td>
 
             </tr>
             <tr>
