@@ -22,13 +22,7 @@ export default function NavBar() {
             <h1 className="p-4">
                 FlagS Hospital
             </h1>
-            {isDocteur &&
-                <button className='btn btn-nav'>
-                    <Link to='/readPatient' className="btn btn-nav">
-                        Listes Patients
-                    </Link>
-                </button>
-            }
+            
             {isDocteur &&
                 <button className='btn btn-nav'>
                     <Link to='/readPatient' className="btn btn-nav">
