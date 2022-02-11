@@ -110,8 +110,11 @@ export default function CreatePatient() {
           </tbody>
         </Table>
          
-        <button className='btn-primary m-2 rounded' onClick={getData} type='submit' >Validez l'ID du dossier patient</button>
-        <input  value={id} placeholder='id' onChange={(e) => setId(e.target.value)} />
+        <button className='btn-primary m-2 rounded' onClick={getData} type='submit' >Validez l'ID du dossier patient à rechercher</button>
+        <input  value={id} placeholder='ID' onChange={(e) => setId(e.target.value)} />
+        <br/>
+        <button className='btn-primary m-2 rounded' onClick={getData} type='submit' >Validez le Nom du dossier patient à recherchez</button>
+        <input  value={nom} placeholder='Nom' onChange={(e) => setNom(e.target.value)} />
       </div>
     )
 
