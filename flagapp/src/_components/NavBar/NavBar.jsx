@@ -31,12 +31,12 @@ export default function NavBar() {
             }
             {isDocteur && <button className='btn btn-nav'>
                 <Link to='/createPatient' className="btn btn-nav">
-                    Cr�er Patient
+                    Creer Patient
                 </Link>
             </button>}
             {isDocteur && <button className='btn btn-nav'>
                 <Link to='/createUser' className="btn btn-nav">
-                    Cr�er User
+                    Creer User
                 </Link>
             </button>}
             {user && <button className='btn btn-primary' onClick={logOut}>
