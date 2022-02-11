@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import './ReadPatient.scss';
 import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { PatientService } from '../_services/patient.service'
@@ -128,6 +129,7 @@ export default function CreatePatient() {
           <tr>
             <td>Note concernant le Patient</td>
             <td >{dossier.note}</td>
+            {role && <button className="btn-outline-warning m-2 rounded " >Modifier </button>}
 
           </tr>
 
