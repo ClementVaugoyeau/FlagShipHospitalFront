@@ -25,7 +25,14 @@ export default function NavBar() {
             {isDocteur &&
                 <button className='btn btn-nav'>
                     <Link to='/readPatient' className="btn btn-nav">
-                        Liste Patients
+                        Listes Patients
+                    </Link>
+                </button>
+            }
+            {isDocteur &&
+                <button className='btn btn-nav'>
+                    <Link to='/readPatient' className="btn btn-nav">
+                        Rechercher Dossier Patient
                     </Link>
                 </button>
             }
