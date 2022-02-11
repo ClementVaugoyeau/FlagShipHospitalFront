@@ -4,6 +4,7 @@ import { authHeader } from '../_helpers';
 export const PatientService = {
    
     getById,
+    getByName,
   
 };
 
@@ -27,7 +28,7 @@ function getByName(nom) {
         headers: authHeader()
     };
 
-    return fetch(`${apiUrl}/Dossierpatient/name${nom}`, requestOptions).then(handleResponse);
+    return fetch(`${apiUrl}/Dossierpatient/nom/${nom}`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
