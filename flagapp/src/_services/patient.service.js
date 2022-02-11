@@ -21,6 +21,15 @@ function getById(id) {
     return fetch(`${apiUrl}/Dossierpatient/${id}`, requestOptions).then(handleResponse);
 }
 
+function getByName(nom) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Dossierpatient/name${nom}`, requestOptions).then(handleResponse);
+}
+
 function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);

@@ -66,6 +66,21 @@ export default function CreatePatient() {
             )
  
   }
+
+  PatientService.getByName(nom)
+          .then(
+            dossier => {
+              setDossier(dossier);
+              console.log(dossier);
+              
+          },
+          error => {
+            alert("dosssier introuvable")
+        }
+          
+            )
+ 
+  
   
   //convertisseur pour les dates
   var a = dossier.dateArrivee;
