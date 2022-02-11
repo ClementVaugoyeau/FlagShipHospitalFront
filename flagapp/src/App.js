@@ -25,23 +25,22 @@ function App() {
 
     return (
         <div>
-           <NavBar />
-            {/* <div className="jumbotron">
-                <div className=""> */}
-                    <div className="d-flex justify-content-center">
-                        {alert.message &&
-                            <div className={`alert ${alert.type}`}>{alert.message}</div>
-                        }
-                        <Routes history={history}>
-                            <Route exact path="/login" element={<LoginPage />} />
-                            <Route exact path='/' element={<LoginPage />} />
-                            <Route exact path='/CreateUser' element={<CreateUser />} />
-                            <Route exact path='/readPatient' element={<ReadPatient />} />
-                            <Route exact path='/createPatient' element={<CreatePatient />} />
-                        </Routes>
-                    </div>
-                {/* </div>
-            </div> */}
+            <NavBar />
+            {/*<div className=""> */}
+            <div className="">
+                {alert.message &&
+                    <div className={`w-75 m-auto alert ${alert.type}`}>{alert.message}</div>
+                }
+                <div className=" d-flex justify-content-center">
+                    <Routes history={history}>
+                        <Route exact path="/login" element={<LoginPage />} />
+                        <Route exact path='/' element={<LoginPage />} />
+                        <Route exact path='/CreateUser' element={<CreateUser />} />
+                        <Route exact path='/readPatient' element={<ReadPatient />} />
+                        <Route exact path='/createPatient' element={<CreatePatient />} />
+                    </Routes>
+                </div>
+            </div>
         </div>
     );
 }
