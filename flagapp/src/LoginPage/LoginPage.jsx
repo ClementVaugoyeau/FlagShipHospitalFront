@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { userActions } from '../_actions';
+import { useNavigate } from "react-router-dom";
+import "./LoginPage.css"
 
 function LoginPage() {
+    const history = useNavigate();
     const [inputs, setInputs] = useState({
-        username: '',
-        password: ''
+        Email: '',
+        Motdepasse: ''
     });
     const [submitted, setSubmitted] = useState(false);
-    const { username, password } = inputs;
+    const { Email, Motdepasse } = inputs;
     const loggingIn = useSelector(state => state.authentication.loggingIn);
     const dispatch = useDispatch();
     const location = useLocation();
@@ -29,37 +31,40 @@ function LoginPage() {
         e.preventDefault();
 
         setSubmitted(true);
-        if (username && password) {
+        if (Email && Motdepasse) {
             // get return url from location state or default to home page
             const { from } = location.state || { from: { pathname: "/" } };
-            dispatch(userActions.login(username, password, from));
+            dispatch(userActions.Login(Email, Motdepasse, from));
         }
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
-            <h2>Login</h2>
+        <div className="w-75">
+            <h2 className="mt-4 mb-4">Login</h2>
             <form name="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" value={username} onChange={handleChange} className={'form-control' + (submitted && !username ? ' is-invalid' : '')} />
-                    {submitted && !username &&
-                        <div className="invalid-feedback">Username is required</div>
+                <div className="form-group mb-4">
+                    <label className="mb-2">Email</label>
+                    <input type="text" name="Email" value={Email} onChange={handleChange} className={'mb-2 form-control' + (submitted && !Email ? ' is-invalid' : '')} />
+                    {submitted && !Email &&
+                        <div className="invalid-feedback">Email is required</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={password} onChange={handleChange} className={'form-control' + (submitted && !password ? ' is-invalid' : '')} />
-                    {submitted && !password &&
+                    <label className="mb-2">Mot de passe</label>
+                    <input type="password" name="Motdepasse" value={Motdepasse} onChange={handleChange} className={'mb-2 form-control' + (submitted && !Motdepasse ? ' is-invalid' : '')} />
+                    {submitted && !Motdepasse &&
                         <div className="invalid-feedback">Password is required</div>
                     }
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-5 d-flex justify-content-around">
                     <button className="btn btn-primary">
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
                     </button>
-                    <Link to="/register" className="btn btn-link">Register</Link>
+                    <button className="btn btn-primary">
+                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                        <Link className="btn btn-primary" to="/CreateUser">Register</Link>
+                    </button>
                 </div>
             </form>
         </div>

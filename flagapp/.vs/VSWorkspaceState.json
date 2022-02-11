@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\src",
+    "\\src\\_actions",
+    "\\src\\_components",
+    "\\src\\_components\\NavBar",
+    "\\src\\_constants",
+    "\\src\\_helpers",
+    "\\src\\_reducers",
+    "\\src\\_services"
+  ],
+  "PreviewInSolutionExplorer": false
+}

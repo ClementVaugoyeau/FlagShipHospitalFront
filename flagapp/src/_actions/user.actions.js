@@ -4,22 +4,23 @@ import { alertActions } from './';
 import { history } from '../_helpers';
 
 export const userActions = {
-    login,
+    Login,
     logout,
     register,
     getAll,
     delete: _delete
 };
 
-function login(username, password, from) {
-    return dispatch => {
-        dispatch(request({ username }));
+function Login(Email, Motdepasse, from) {
 
-        userService.login(username, password)
+    return dispatch => {
+        dispatch(request({ Email }));
+
+        userService.Login(Email, Motdepasse)
             .then(
                 user => { 
-                    dispatch(success(user));
-                    history.push(from);
+                   dispatch(success(user));
+                   history.push('createPatient');
                 },
                 error => {
                     dispatch(failure(error.toString()));
