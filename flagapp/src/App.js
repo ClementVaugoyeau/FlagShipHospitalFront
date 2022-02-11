@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { LoginPage } from './LoginPage';
 import  CreateUser from './CreateUser/CreateUser';
-import  CreatePatient  from './CreatePatient/CreatePatient';
+import CreatePatient from './CreatePatient/CreatePatient';
+import ReadPatient from './ReadPatient/ReadPatient';
 import NavBar from './_components/NavBar/NavBar';
 import { history } from './_helpers';
 import { alertActions } from './_actions';
@@ -35,6 +36,7 @@ function App() {
                             <Route exact path="/login" element={<LoginPage />} />
                             <Route exact path='/' element={<LoginPage />} />
                             <Route exact path='/CreateUser' element={<CreateUser />} />
+                            <Route exact path='/readPatient' element={<ReadPatient />} />
                             <Route exact path='/createPatient' element={<CreatePatient />} />
                         </Routes>
                     </div>

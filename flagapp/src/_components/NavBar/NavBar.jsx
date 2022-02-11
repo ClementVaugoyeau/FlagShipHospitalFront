@@ -9,8 +9,8 @@ export default function NavBar() {
     const user = useSelector(state => state.authentication.user);
     /*const admin = user.role === "admin";*/
     ; const role = useSelector(state => state.authentication.role);
-    const isAdmin = role === "admin";
-    const isStaff = role === "staff";
+    const isDocteur = role === "Docteur";
+    const isStaff = role === "Staff";
     const isPatient = role === "Patient";
     /*const [role, setRole] = useState("");*/
     const logOut = () => {
@@ -22,19 +22,19 @@ export default function NavBar() {
             <h1 className="p-4">
                 FlagS Hospital
             </h1>
-            {isPatient &&
+            {isDocteur &&
                 <button className='btn btn-nav'>
-                    <Link to='/read' className="btn btn-nav">
+                    <Link to='/readPatient' className="btn btn-nav">
                         Liste Patients
                     </Link>
                 </button>
             }
-            {isAdmin && <button className='btn btn-nav'>
+            {isDocteur && <button className='btn btn-nav'>
                 <Link to='/createPatient' className="btn btn-nav">
                     Cr�er Patient
                 </Link>
             </button>}
-            {isAdmin && <button className='btn btn-nav'>
+            {isDocteur && <button className='btn btn-nav'>
                 <Link to='/createUser' className="btn btn-nav">
                     Cr�er User
                 </Link>
