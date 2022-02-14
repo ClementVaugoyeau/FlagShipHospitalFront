@@ -5,6 +5,7 @@ import { LoginPage } from './LoginPage';
 import  CreateUser from './CreateUser/CreateUser';
 import CreatePatient from './CreatePatient/CreatePatient';
 import ReadPatient from './ReadPatient/ReadPatient';
+import ListeDossiers from './ListeDossiers/ListeDossiers';
 import NavBar from './_components/NavBar/NavBar';
 import { history } from './_helpers';
 import { alertActions } from './_actions';
@@ -26,7 +27,6 @@ function App() {
     return (
         <div>
             <NavBar />
-            {/*<div className=""> */}
             <div className="">
                 {alert.message &&
                     <div className={`w-75 m-auto alert ${alert.type}`}>{alert.message}</div>
@@ -36,7 +36,10 @@ function App() {
                         <Route exact path="/login" element={<LoginPage />} />
                         <Route exact path='/' element={<LoginPage />} />
                         <Route exact path='/CreateUser' element={<CreateUser />} />
-                        <Route exact path='/readPatient' element={<ReadPatient />} />
+                        <Route exact path='/listeDossiers' element={<ListeDossiers />} />
+                        <Route path='/Dossierpatient' element={<ReadPatient />} >
+                            <Route path=':id' element={<ReadPatient  />} />
+                        </Route>                      
                         <Route exact path='/createPatient' element={<CreatePatient />} />
                     </Routes>
                 </div>

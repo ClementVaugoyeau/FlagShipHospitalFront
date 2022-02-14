@@ -22,7 +22,6 @@ function Login(Email, Motdepasse) {
     return fetch(`${apiUrl}/Users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
 
             return user;
@@ -30,7 +29,6 @@ function Login(Email, Motdepasse) {
 }
 
 function logout() {
-    // remove user from local storage to log user out
     localStorage.removeItem('user');
 }
 
@@ -72,7 +70,6 @@ function update(user) {
     return fetch(`${apiUrl}/Users/${user.id}`, requestOptions).then(handleResponse);;
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     const requestOptions = {
         method: 'DELETE',

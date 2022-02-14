@@ -1,15 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
+    "\\src\\CreatePatient",
+    "\\src\\ListeDossiers",
+    "\\src\\ReadPatient",
     "\\src\\_actions",
     "\\src\\_components",
     "\\src\\_components\\NavBar",
-    "\\src\\_constants",
-    "\\src\\_helpers",
     "\\src\\_reducers",
     "\\src\\_services"
   ],
+  "SelectedNode": "\\src\\_services\\dossierpatient.service.js",
   "PreviewInSolutionExplorer": false
 }
