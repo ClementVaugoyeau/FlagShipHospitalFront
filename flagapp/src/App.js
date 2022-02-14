@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { LoginPage } from './LoginPage';
 import  CreateUser from './CreateUser/CreateUser';
+import  UpdateUser from './UpdateUser/UpdateUser';
 import CreatePatient from './CreatePatient/CreatePatient';
 import ReadPatient from './ReadPatient/ReadPatient';
 import ListeDossiers from './ListeDossiers/ListeDossiers';
@@ -36,6 +37,7 @@ function App() {
                         <Route exact path="/login" element={<LoginPage />} />
                         <Route exact path='/' element={<LoginPage />} />
                         <Route exact path='/CreateUser' element={<CreateUser />} />
+                        <Route exact path='/UpdateUser' element={<UpdateUser />} />
                         <Route exact path='/listeDossiers' element={<ListeDossiers />} />
                         <Route path='/Dossierpatient' element={<ReadPatient />} >
                             <Route path=':id' element={<ReadPatient  />} />

@@ -31,7 +31,7 @@ export default function NavBar() {
             {(isDocteur || isStaff ) &&
                 <button className='btn btn-nav'>
                     <Link to='/listeDossiers' className="btn btn-nav">
-                        Liste Dosiers
+                        Liste Dossiers
                     </Link>
                 </button>
             }
@@ -42,7 +42,12 @@ export default function NavBar() {
             </button>}
             {isDocteur && <button className='btn btn-nav'>
                 <Link to='/createUser' className="btn btn-nav">
-                    Creer User
+                    Creer Utilisateur
+                </Link>
+            </button>}
+            {isDocteur && <button className='btn btn-nav'>
+                <Link to='/UpdateUser' className="btn btn-nav">
+                    Modifier Utilisateur
                 </Link>
             </button>}
             {(isDocteur || isStaff) && <button className='btn btn-nav'>
