@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 import './CreateUser.scss';
-import Table from 'react-bootstrap/Table'
 import { userService } from '../_services/user.service'
 import axios from 'axios'
 
@@ -42,9 +41,7 @@ export default function CreateUser() {
         <div className="w-75">
 
             <h1 className="mt-4 mb-4" >Création de l'utilisateur</h1>
-            
-            {/* <Table striped bordered hover> */}
-            {/* <form> */}
+
                 <div className="form-group mb-4">
                     <label className="mb-2">Email</label>
                     <input type="text" name="email" value={email} onChange={(e) => setMail(e.target.value)} 
@@ -70,41 +67,13 @@ export default function CreateUser() {
                               <option value="Docteur">Docteur</option>
                     </select>
                 </div>
-            {/* </form> */}
             <div className="form-group mt-5 d-flex justify-content-around">
               <button className='btn btn-primary' onClick={postData} type='submit' >
                 {searching && <span className="spinner-border spinner-border-sm mr-1"></span>}
                 Enregistrer
               </button>
             </div>
-              {/* <tbody>
-                <tr>
-                  <td>Adresse mail</td>
-                  <td><input value={email} placeholder='mail' onChange={(e) => setMail(e.target.value)}></input></td>
-     
-                </tr>
-                <tr>
-                  <td>Mot de passe</td>
-                  <td><input type="password" value={motdepasse} placeholder='mot de passe' onChange={(e) => setPassword(e.target.value)}></input></td>
-      
-                </tr>
-    
-                <tr>
-                    <td>Role</td>
-                    <td >
-                            <select id="monselect" defaultValue={'DEFAULT'} onChange={(e) => setRole(e.target.value)}>
-                              <option value="DEFAULT" disabled>Choose a salutation ...</option>
-                              <option value="Patient">Patient</option>
-                              <option value="Staff">Staff</option>
-                              <option value="Docteur">Docteur</option>
-                        </select>
-                    </td>    
-                </tr>   
-                </tbody>
-
-            </table> */}
-    
-            {/* <button className='btn-primary m-2 rounded' onClick={postData} type='submit' >Enregistrer</button> */}
+       
         </div>
     )
     

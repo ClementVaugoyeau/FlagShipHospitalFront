@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import './CreatePatient.scss';
-import Table from 'react-bootstrap/Table'
+/*import Table from 'react-bootstrap/Table'*/
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { dossierPatientService } from '../_services/dossierpatient.service'
@@ -9,25 +9,20 @@ export default function CreatePatient() {
   const [UserID, setUserID] = useState('');
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
+  const [numsecu, setNumSecu] = useState('');
   const [dateArrivee, setDateArrivee] = useState('');
   const [dateDepart, setDateDepart] = useState('');
   const [note, setNote] = useState();
   const role = useSelector(state => state.authentication.user.role);
 
   const postData = (e) => {
-    //axios.post('https://localhost:7008/api/Dossierpatient', {
-    //  UserID,
-    //  nom,
-    //  prenom,
-    //  dateArrivee,
-    //  dateDepart,
-    //  note
-    //})
+
       e.preventDefault();
 
       let dossierPatient = {
           "Nom": nom,
           "Prenom": prenom,
+          "NumSecu": numsecu,
           "DateArrivee": new Date(dateArrivee),
           "DateDepart": new Date(dateDepart),
           "Note": note
@@ -49,18 +44,21 @@ export default function CreatePatient() {
       <div className="container">
         <h1 id="titleTable" >Création du dossier patient</h1>
 
-        <Table striped bordered hover>
+            <table className="table">
 
           <tbody>
+            <tr>
+               <td>Nom</td>
+               <td><input placeholder='Nom' value={nom} onChange={(e) => setNom(e.target.value)}></input></td>
+               </tr>
             <tr>
               <td>Prénom</td>
               <td><input placeholder='Prénom' value={prenom} onChange={(e) => setPrenom(e.target.value)}></input></td>
 
             </tr>
             <tr>
-              <td>Nom</td>
-              <td><input placeholder='Nom' value={nom} onChange={(e) => setNom(e.target.value)}></input></td>
-
+              <td>Numéro de Sécu</td>
+              <td><input placeholder='NumSecu' value={numsecu} onChange={(e) => setNumSecu(e.target.value)}></input></td>
             </tr>
             <tr>
               <td>Date d'arrivée</td>
@@ -80,7 +78,7 @@ export default function CreatePatient() {
             </tr>
 
           </tbody>
-        </Table>
+            </table>
 
         <button className='btn-primary m-2 rounded' onClick={postData} type='submit' >Enregistrer</button>
       </div>

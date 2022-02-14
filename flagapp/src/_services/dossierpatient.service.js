@@ -3,6 +3,11 @@ import { authHeader } from '../_helpers';
 
 export const dossierPatientService = {
     create,
+    getById,
+    getByNumSecu,
+    getAll,
+    _delete,
+    update
 };
 
 function create(dossierPatient) {
@@ -16,65 +21,58 @@ function create(dossierPatient) {
     return fetch(`${apiUrl}/Dossierpatient`, requestOptions)
         .then(handleResponse)
         .then(dossier => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('dossier', JSON.stringify(dossier));
 
             return dossier;
         });
 }
 
-//function logout() {
-//    // remove user from local storage to log user out
-//    localStorage.removeItem('user');
-//}
+function getById(id) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
 
-//function getAll() {
-//    const requestOptions = {
-//        method: 'GET',
-//        headers: authHeader()
-//    };
+    return fetch(`${apiUrl}/Dossierpatient/${id}`, requestOptions).then(handleResponse);
+}
 
-//    return fetch(`${apiUrl}/Users`, requestOptions).then(handleResponse);
-//}
+function getByNumSecu(numSecu) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
 
-//function getById(id) {
-//    const requestOptions = {
-//        method: 'GET',
-//        headers: authHeader()
-//    };
+    return fetch(`${apiUrl}/Dossierpatient/numsecu/${numSecu}`, requestOptions).then(handleResponse);
+}
 
-//    return fetch(`${apiUrl}/Users/${id}`, requestOptions).then(handleResponse);
-//}
+function getAll() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
 
-//function register(user) {
-//    const requestOptions = {
-//        method: 'POST',
-//        headers: { 'Content-Type': 'application/json' },
-//        body: JSON.stringify(user)
-//    };
+    return fetch(`${apiUrl}/Dossierpatient`, requestOptions).then(handleResponse);
+}
 
-//    return fetch(`${apiUrl}/Users`, requestOptions).then(handleResponse);
-//}
+function update(dossier) {
+    console.log(dossier)
+    const requestOptions = {
+        method: 'PUT',
+        headers: { ...authHeader(), 'Content-Type': 'application/json' },
+        body: JSON.stringify(dossier)
+    };
 
-//function update(user) {
-//    const requestOptions = {
-//        method: 'PUT',
-//        headers: { ...authHeader(), 'Content-Type': 'application/json' },
-//        body: JSON.stringify(user)
-//    };
+    return fetch(`${apiUrl}/Dossierpatient`, requestOptions).then(handleResponse);;
+}
 
-//    return fetch(`${apiUrl}/Users/${user.id}`, requestOptions).then(handleResponse);;
-//}
+function _delete(id) {
+    const requestOptions = {
+        method: 'DELETE',
+        headers: authHeader()
+    };
 
-//// prefixed function name with underscore because delete is a reserved word in javascript
-//function _delete(id) {
-//    const requestOptions = {
-//        method: 'DELETE',
-//        headers: authHeader()
-//    };
-
-//    return fetch(`${apiUrl}/Users/${id}`, requestOptions).then(handleResponse);
-//}
+    return fetch(`${apiUrl}/Dossierpatient/${id}`, requestOptions).then(handleResponse);
+}
 
 function handleResponse(response) {
     return response.text().then(text => {

@@ -4,6 +4,7 @@ import { authHeader } from '../_helpers';
 export const PatientService = {
    
     getById,
+    getByName,
   
 };
 
@@ -19,6 +20,15 @@ function getById(id) {
     };
 
     return fetch(`${apiUrl}/Dossierpatient/${id}`, requestOptions).then(handleResponse);
+}
+
+function getByName(nom) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${apiUrl}/Dossierpatient/nom/${nom}`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

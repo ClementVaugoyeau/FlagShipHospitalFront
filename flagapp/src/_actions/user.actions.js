@@ -20,7 +20,12 @@ function Login(Email, Motdepasse, from) {
             .then(
                 user => { 
                    dispatch(success(user));
-                   history.push('createPatient');
+                    if (user.role == "Patient") {
+                        history.push('Dossierpatient');
+                    } else {
+                        history.push('listeDossiers');
+                    }
+                   
                 },
                 error => {
                     dispatch(failure(error.toString()));
