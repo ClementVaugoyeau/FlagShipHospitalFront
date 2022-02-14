@@ -50,7 +50,7 @@ export default function CreatePatient() {
       setNote(data.note);
   }
 
-  const getDataById = (e) => {
+  const getData = (e) => {
 
     e.preventDefault();
       

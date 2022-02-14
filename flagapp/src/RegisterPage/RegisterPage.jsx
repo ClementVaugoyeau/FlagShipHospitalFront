@@ -6,7 +6,7 @@ import { userActions } from '../_actions';
 
 function RegisterPage() {
     const [user, setUser] = useState({
-        firstName: '',
+        Email: '',
         lastName: '',
         username: '',
         password: ''

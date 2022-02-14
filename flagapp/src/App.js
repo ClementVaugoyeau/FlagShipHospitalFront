@@ -6,6 +6,7 @@ import  CreateUser from './CreateUser/CreateUser';
 import CreatePatient from './CreatePatient/CreatePatient';
 import ReadPatient from './ReadPatient/ReadPatient';
 import ListeDossiers from './ListeDossiers/ListeDossiers';
+import { RegisterPage } from './RegisterPage/RegisterPage';
 import NavBar from './_components/NavBar/NavBar';
 import { history } from './_helpers';
 import { alertActions } from './_actions';
@@ -41,6 +42,7 @@ function App() {
                             <Route path=':id' element={<ReadPatient  />} />
                         </Route>                      
                         <Route exact path='/createPatient' element={<CreatePatient />} />
+                        <Route exact path='/register' element={<RegisterPage />} />
                     </Routes>
                 </div>
             </div>
