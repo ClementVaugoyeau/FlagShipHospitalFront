@@ -1,7 +1,9 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import './CreateUser.scss';
 import { userService } from '../_services/user.service'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import { userActions, alertActions } from '../_actions';
 
 export default function CreateUser() {
 
@@ -11,7 +13,12 @@ export default function CreateUser() {
   const [role, setRole] = useState();
   const [submitted, setSubmitted] = useState(false);
   const [searching, setSearching] = useState(false);
-  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+        dispatch(alertActions.clear());
+   }, [])
+
   const postData = (e) => {
     
       e.preventDefault();
@@ -21,17 +28,18 @@ export default function CreateUser() {
               "motdepasse": motdepasse,
               "role": role
       }
-      userService.register(user)
-              .then(
-                  user => {
-                      console.log(user)
-                      alert("Utilisateur créé")
-                      setSearching(false)
-                  },
-                  error => {
-                      alert(error)
-                  }
-          );
+      dispatch(userActions.register(user));
+      //userService.register(user)
+      //        .then(
+      //            user => {
+      //                console.log(user)
+      //                /*alert("Utilisateur créé")*/
+      //                setSearching(false)
+      //            },
+      //            error => {
+      //                alert(error)
+      //            }
+      //    );
 
   }
     

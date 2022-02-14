@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { dossierPatientService } from '../_services/dossierpatient.service'
 import { useParams } from 'react-router-dom';
-
+import { dossierActions } from '../_actions';
+import { alertActions } from '../_actions';
 
 export default function CreatePatient() {
 
@@ -18,10 +19,12 @@ export default function CreatePatient() {
   const [dateDepart, setDateDepart] = useState('');
   const [note, setNote] = useState();
   const role = useSelector(state => state.authentication.user.role);
+  const dispatch = useDispatch();
+
   let numsecu = '';
 
     useEffect(() => {
-
+        dispatch(alertActions.clear());
         if (params['id'] != undefined) {
             setNumSecu(params['id'])
             dossierPatientService.getByNumSecu(params['id'])
@@ -80,19 +83,19 @@ export default function CreatePatient() {
         }
 
         e.preventDefault();
+        dispatch(dossierActions.update(dossier));
+        //dossierPatientService.update(dossier)
+        //    .then(
+        //        dossier => {
+        //            setDossier(dossier);
+        //            console.log(dossier);
 
-        dossierPatientService.update(dossier)
-            .then(
-                dossier => {
-                    setDossier(dossier);
-                    console.log(dossier);
+        //        },
+        //        error => {
+        //            alert("dosssier non mis à jour")
+        //        }
 
-                },
-                error => {
-                    alert("dosssier non mis à jour")
-                }
-
-            )
+        //    )
 
     }
   

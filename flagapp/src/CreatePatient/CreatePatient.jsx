@@ -1,9 +1,10 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import './CreatePatient.scss';
-/*import Table from 'react-bootstrap/Table'*/
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { dossierPatientService } from '../_services/dossierpatient.service'
+import { dossierActions } from '../_actions';
+import { userActions, alertActions } from '../_actions';
 
 export default function CreatePatient() {
   const [UserID, setUserID] = useState('');
@@ -14,6 +15,11 @@ export default function CreatePatient() {
   const [dateDepart, setDateDepart] = useState('');
   const [note, setNote] = useState();
   const role = useSelector(state => state.authentication.user.role);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+        dispatch(alertActions.clear());
+  }, [])
 
   const postData = (e) => {
 
@@ -27,16 +33,17 @@ export default function CreatePatient() {
           "DateDepart": new Date(dateDepart),
           "Note": note
       }
-      dossierPatientService.create(dossierPatient)
-          .then(
-              dossierPatient => {
-                  console.log(dossierPatient)
-                  alert("dossierPatient créé")
-              },
-              error => {
-                  alert(error)
-              }
-          );
+      dispatch(dossierActions.create(dossierPatient));
+      //dossierPatientService.create(dossierPatient)
+      //    .then(
+      //        dossierPatient => {
+      //            console.log(dossierPatient)
+      //            alert("dossierPatient créé")
+      //        },
+      //        error => {
+      //            alert(error)
+      //        }
+      //    );
   }
 
 
