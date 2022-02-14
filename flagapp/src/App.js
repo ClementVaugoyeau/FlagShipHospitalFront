@@ -19,6 +19,7 @@ function App() {
     const nav = useNavigate();
 
     useEffect(() => {
+        dispatch(alertActions.clear());
         history.listen((location, action) => {
             nav(location["location"]["pathname"]);
             dispatch(alertActions.clear());
