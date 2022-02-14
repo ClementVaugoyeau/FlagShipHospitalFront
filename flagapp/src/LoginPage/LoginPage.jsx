@@ -59,10 +59,10 @@ function LoginPage() {
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
                     </button>
-                    <button className="btn btn-primary">
-                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        <Link className="btn btn-primary" to="/CreateUser">Register</Link>
-                    </button>
+                    {/*<button className="btn btn-primary">*/}
+                    {/*    {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}*/}
+                    {/*    <Link className="btn btn-primary" to="/register">Register</Link>*/}
+                    {/*</button>*/}
                 </div>
             </form>
         </div>
