@@ -61,7 +61,7 @@ export default function CreateUser() {
                 <div className="form-group mb-4">
                     <label className="mb-2">Role</label>
                     <select id="monselect" defaultValue={'DEFAULT'} onChange={(e) => setRole(e.target.value)}>
-                              <option value="DEFAULT" disabled>Choose a salutation ...</option>
+                              <option value="DEFAULT" disabled>Choisir un role ...</option>
                               <option value="Patient">Patient</option>
                               <option value="Staff">Staff</option>
                               <option value="Docteur">Docteur</option>
