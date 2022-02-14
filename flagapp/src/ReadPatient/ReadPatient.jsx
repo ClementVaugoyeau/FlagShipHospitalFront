@@ -37,7 +37,7 @@ export default function CreatePatient() {
         }
    }, [])
 
-  
+
 
     const setData = (data) => {
       setId(data.id)
@@ -50,8 +50,8 @@ export default function CreatePatient() {
       setNote(data.note);
   }
 
-  const getData = (e) => {
-    
+  const getDataById = (e) => {
+
     e.preventDefault();
       
       dossierPatientService.getByNumSecu(numSecu)
@@ -131,7 +131,7 @@ export default function CreatePatient() {
               <td ><textarea rows="9" cols="40" placeholder="Symptômes, diagnotics traitements, divers remarques pour l'equipe medicale."
                     value={note || ''} onChange={(e) => setNote(e.target.value)}></textarea></td>
 
-            </tr>
+          </tr>
 
           </tbody>
         </table>
@@ -141,4 +141,4 @@ export default function CreatePatient() {
 
 
 
-  }
+}
