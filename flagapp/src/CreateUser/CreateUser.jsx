@@ -22,7 +22,7 @@ export default function CreateUser() {
   const postData = (e) => {
     
       e.preventDefault();
-      setSearching(true)
+      /*setSearching(true)*/
       let user = {
               "email": email,
               "motdepasse": motdepasse,
