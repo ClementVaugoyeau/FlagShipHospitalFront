@@ -5,8 +5,7 @@ import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons'
-/*library.add(faCheckSquare, faCoffee)*/
-/*import { fa-power - off } from '@fortawesome/free-solid-svg-icons'*/
+
 library.add(faPowerOff);
 
 export default function NavBar() {
@@ -14,7 +13,7 @@ export default function NavBar() {
     //const role = useSelector(state => state.authentication.user.role);
     const user = useSelector(state => state.authentication.user);
     /*const admin = user.role === "admin";*/
-    ; const role = useSelector(state => state.authentication.role);
+    const role = useSelector(state => state.authentication.role);
     const isDocteur = role === "Docteur";
     const isStaff = role === "Staff";
     const isPatient = role === "Patient";

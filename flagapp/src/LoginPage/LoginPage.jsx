@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../_actions';
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css"
+import { alertActions } from '../_actions';
 
 function LoginPage() {
     const history = useNavigate();
@@ -18,7 +19,8 @@ function LoginPage() {
     const location = useLocation();
 
     useEffect(() => { 
-        dispatch(userActions.logout()); 
+        dispatch(userActions.logout());
+        dispatch(alertActions.clear());
     }, []);
 
     function handleChange(e) {
@@ -59,10 +61,10 @@ function LoginPage() {
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
                     </button>
-                    <button className="btn btn-primary">
-                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        <Link className="btn btn-primary" to="/CreateUser">Register</Link>
-                    </button>
+                    {/*<button className="btn btn-primary">*/}
+                    {/*    {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}*/}
+                    {/*    <Link className="btn btn-primary" to="/register">Register</Link>*/}
+                    {/*</button>*/}
                 </div>
             </form>
         </div>
