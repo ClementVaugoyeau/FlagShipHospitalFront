@@ -21,6 +21,10 @@ export default function CreatePatient() {
   const role = useSelector(state => state.authentication.user.role);
   const dispatch = useDispatch();
 
+  const isDocteur = role === "Docteur";
+  const isStaff = role === "Staff";
+  const isPatient = role === "Patient";
+
   let numsecu = '';
 
     useEffect(() => {
@@ -138,7 +142,7 @@ export default function CreatePatient() {
 
           </tbody>
         </table>
-            <button className='btn-primary m-2 rounded' onClick={updateData} type='submit' >Modifier</button>
+            {(isDocteur || isStaff) && <button className='btn-primary m-2 rounded' onClick={updateData} type='submit' >Modifier</button>}
       </div>
     )
 

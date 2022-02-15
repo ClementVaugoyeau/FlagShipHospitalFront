@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../_actions';
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css"
+import { alertActions } from '../_actions';
 
 function LoginPage() {
     const history = useNavigate();
@@ -18,7 +19,8 @@ function LoginPage() {
     const location = useLocation();
 
     useEffect(() => { 
-        dispatch(userActions.logout()); 
+        dispatch(userActions.logout());
+        dispatch(alertActions.clear());
     }, []);
 
     function handleChange(e) {

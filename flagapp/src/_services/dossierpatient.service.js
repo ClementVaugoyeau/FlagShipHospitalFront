@@ -55,7 +55,6 @@ function getAll() {
 }
 
 function update(dossier) {
-    console.log(dossier)
     const requestOptions = {
         method: 'PUT',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
