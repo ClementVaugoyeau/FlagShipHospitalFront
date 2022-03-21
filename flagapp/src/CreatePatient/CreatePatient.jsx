@@ -24,6 +24,7 @@ export default function CreatePatient() {
   const postData = (e) => {
 
       e.preventDefault();
+      
 
       let dossierPatient = {
           "Nom": nom,
